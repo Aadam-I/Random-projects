@@ -1,0 +1,19 @@
+def collatz(num):
+    if num%2==0:
+        num=num//2
+        print(num)
+        return num
+    elif num%2!=0:
+        num=3*num+1
+        print(num)
+        return num
+
+m=[]
+n = input("Give me a number: ")
+while n != 1:
+    m.append(n)
+    steps=0
+    for i in range(len(m)):
+        steps+=1
+    n = collatz(int(n))
+print("steps",steps)
