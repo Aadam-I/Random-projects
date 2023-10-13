@@ -1,0 +1,15 @@
+def fibonnaci():
+    a,b=0,1
+    while True:
+        yield a
+        a,b=b,a+b
+
+f=open("Fibbonaci.txt","w")
+n=int(input("Enter the limit for the program"))
+for index,x in enumerate(fibonnaci()):
+    if index+1 > n:
+        f.close()
+        break
+    print(f"{index+1}.{x}\n")
+    f.write(f"{index+1}.{x}\n")
+f.close()
