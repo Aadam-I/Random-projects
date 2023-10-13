@@ -1,0 +1,30 @@
+from math import log2
+def collatz(num:int):
+    if num%2==0:
+        num=num//2
+        print(num)
+        return num
+    elif num%2!=0:
+        num=3*num+1
+        print(num)
+        return num
+
+l_bound=int(input("give lower bound\n"))
+u_bound=int(input("give upper bound\n"))
+step_max=0
+a_max=0
+for a in range(l_bound,u_bound):
+    print("\n",a,":\n")
+    m=[]
+    n=a
+    steps=0
+    while int(log2(n))!=log2(n) :
+        m.append(n)
+        n = collatz(int(n))
+    for i in range(len(m)):
+        steps+=1
+    print("steps",steps)
+    if steps> step_max:
+            step_max=steps
+            a_max=a
+print("maximum steps:",step_max,"for number:",a_max)
